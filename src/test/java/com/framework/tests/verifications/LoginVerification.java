@@ -1,4 +1,4 @@
-package com.framework.tests.verifications;
+package com.framework.verifications;
 
 import com.framework.steps.LoginSteps;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +11,7 @@ public class LoginVerification {
         this.loginSteps = new LoginSteps(webdriver);
     }
 
-    public void verifyIncorrectLoginMessage(String expectedMessage) {
-      Assert.assertEquals(loginSteps.getLoginErrorMessage(),expectedMessage,
-              "Error. Incorrect login message is nt as expected");
+    public void verifyIncorrectLoginMessage(String message) {
+      Assert.
     }
 }
