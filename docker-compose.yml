@@ -1,0 +1,36 @@
+version: '3'
+
+#  docker-compose up -d
+
+#  Jenkins буде на порту http://localhost:8080
+#  Selenium Grid Web UI — http://localhost:4444/ui
+
+#  docker system prune -a --volumes --- почистити кеш
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    container_name: jenkins
+
+  selenium-hub:
+    image: selenium/hub:4.20.0
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+
+  chrome:
+    image: selenium/node-chrome:4.20.0
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+volumes:
+  jenkins_home:
