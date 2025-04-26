@@ -41,12 +41,12 @@
             <scope>test</scope>
         </dependency>
 
-<!--        &lt;!&ndash; Allure &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.qameta.allure</groupId>-->
-<!--            <artifactId>allure-testng</artifactId>-->
-<!--            <version>${allure.version}</version>-->
-<!--        </dependency>-->
+        <!-- Allure -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
 
 <!--        &lt;!&ndash; Jackson (для роботи з JSON, якщо треба) &ndash;&gt;-->
 <!--        <dependency>-->
@@ -89,11 +89,11 @@
             </plugin>
 
             <!-- Allure Report Plugin -->
-<!--            <plugin>-->
-<!--                <groupId>io.qameta.allure</groupId>-->
-<!--                <artifactId>allure-maven</artifactId>-->
-<!--                <version>2.11.2</version>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
+            </plugin>
         </plugins>
     </build>
 </project>
