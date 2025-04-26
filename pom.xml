@@ -48,6 +48,12 @@
             <version>${allure.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+
 <!--        &lt;!&ndash; Jackson (для роботи з JSON, якщо треба) &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>com.fasterxml.jackson.core</groupId>-->

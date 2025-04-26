@@ -2,21 +2,24 @@ package com.framework.tests.listeners;
 
 import com.framework.drivers.DriverManager;
 import io.qameta.allure.Attachment;
-import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class AllureListener extends AllureTestNg implements ITestListener {
+public class AllureListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result){
-        saveScreenshot();
+        WebDriver driver = DriverManager.getDriver();
+        if (driver != null) {
+            saveScreenshot(driver);
+        }
     }
 
-    @Attachment(value = "Failure Screenshot", type="image/png")
-    private byte[] saveScreenshot(){
-        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+    @Attachment(value = "Screenshot on Failure", type = "image/png")
+    public byte[] saveScreenshot(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
